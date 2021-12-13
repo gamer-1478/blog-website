@@ -25,10 +25,10 @@ app.use(express.static('public', options))
 
 
 //cors middleware
-const whitelist = ['http://blog.aayushgarg.net']
+const whitelist = ['localhost', 'blog.aayushgarg.net', 'blog-aayush.herokuapp.com']
 const corsOptions = {
     origin: (origin, callback) => {
-        if ( whitelist.indexOf(origin) !== -1) {
+        if (!origin || whitelist.indexOf(origin) !== -1) {
             callback(null, true)
         } else {
             callback(new Error("Not allowed by CORS"))
