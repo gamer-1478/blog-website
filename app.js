@@ -5,7 +5,6 @@ const express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
-    cors = require('cors'),
     port = process.env.PORT || 3000,
     path = require('path');
 
@@ -21,16 +20,24 @@ const options = {
     }
 }
 
-var allowedOrigins = ['http://localhost:3000',
-    'http://yourapp.com'];
-app.use(cors({
-    origin: 'http://localhost:3000'
-}));
+// Allowed hosts
+const allowedHosts = ['localhost'];
+const checkHosts = (req, res, next) => {
+    if (allowedHosts.includes(req.hostname)) {
+        console.log(req.hostname);
+        return next();
+    }
+
+    return res.sendStatus(403);
+}
+
+app.use(checkHosts);
+
 
 app.use(express.static('public', options))
 app.use(bodyParser.json());
 
-app.get('/', cors(), (req, res) => {
+app.get('/', (req, res) => {
     res.send("hello world")
 });
 
