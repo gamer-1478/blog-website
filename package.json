@@ -1,0 +1,26 @@
+{
+  "name": "blog-website",
+  "version": "1.0.0",
+  "description": "a website for blogging, currently intended for aayushgarg.net subpart, likely blog.aayushgarg.net",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gamer-1478/blog-website.git"
+  },
+  "keywords": [
+    "blog",
+    "aayushgarg.net",
+    "wordpress"
+  ],
+  "author": "gamer-1478",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gamer-1478/blog-website/issues"
+  },
+  "homepage": "https://github.com/gamer-1478/blog-website#readme"
+}
