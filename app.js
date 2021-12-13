@@ -38,7 +38,7 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 // Allowed hosts
-const allowedHosts = ['localhost'];
+const allowedHosts = ['localhost', 'blog.aayushgarg.net', 'blog-aayush.herokuapp.com'];
 const checkHosts = (req, res, next) => {
     if (allowedHosts.includes(req.hostname)) {
         console.log(req.hostname);
